@@ -468,6 +468,9 @@
                                 <rect key="frame" x="148" y="254" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Load Game"/>
+                                <connections>
+                                    <action selector="loadBtn:" destination="8ii-jz-Cmd" eventType="touchUpInside" id="5sQ-an-OY3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-fX-f5m">
                                 <rect key="frame" x="274" y="146" width="30" height="30"/>

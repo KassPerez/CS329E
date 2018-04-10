@@ -24,6 +24,14 @@ class InGameSettingsController: UIViewController {
     var songNumLimit = 1  // Number of songs in the GSC songs array - 1
     var songNow = 1
     
+    @IBAction func loadBtn(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        if let savedPlayer = defaults.object(forKey: "player") as? Data {
+            player = NSKeyedUnarchiver.unarchiveObject(with: savedPlayer) as? Player
+        }
+    }
+    
     @IBAction func exitBtn(_ sender: Any) {
         UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
         delegate?.playSegue(fileNamed: "hit.mp3")
