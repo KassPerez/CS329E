@@ -10,6 +10,7 @@ import UIKit
 
 protocol MapLocProtocol {
     func setBG(bg: UIImage)
+    func setChar(char: UIImage)
     func playSegue(fileNamed: String)
 }
 
@@ -19,16 +20,19 @@ class MapController: UIViewController {
     
     @IBAction func libBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_library")!)
+        delegate?.setChar(char: UIImage.init(named: "boy_neutral")!)
         delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func unionBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_union")!)
+        delegate?.setChar(char: UIImage.init(named: "nonbinary_neutral")!)
         delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func classroomBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_classroom")!)
+        delegate?.setChar(char: UIImage.init(named: "girl_neutral")!)
         delegate?.playSegue(fileNamed: "hit.mp3")
     }
     

@@ -99,6 +99,10 @@ extension GameSceneController{
         bgImage.image = bg
     }
     
+    func setChar(char: UIImage) {
+        charImage.image = char
+    }
+    
     func playMusic(play: Bool) {
         if play {
             print("playing")
