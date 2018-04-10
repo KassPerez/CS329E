@@ -10,6 +10,7 @@ import UIKit
 
 protocol MapLocProtocol {
     func setBG(bg: UIImage)
+    func playSegue(fileNamed: String)
 }
 
 class MapController: UIViewController {
@@ -18,23 +19,24 @@ class MapController: UIViewController {
     
     @IBAction func libBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_library")!)
+        delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func unionBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_union")!)
+        delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func classroomBtn(_ sender: Any) {
-        delegate?.setBG(bg: UIImage.init(named: "BG_classrom")!)
+        delegate?.setBG(bg: UIImage.init(named: "BG_classroom")!)
+        delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func dormBtn(_ sender: Any) {
         delegate?.setBG(bg: UIImage.init(named: "BG_dorm")!)
+        delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
-    @IBAction func diningBtn(_ sender: Any) {
-        delegate?.setBG(bg: UIImage.init(named: "BG_dining")!)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }

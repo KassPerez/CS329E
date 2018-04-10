@@ -6,20 +6,54 @@
 //  Copyright © 2018 Katy McQuaid. All rights reserved.
 //
 
+protocol changeSongProtocol {
+    func changeSong(song: Int)
+    func adjustVolume(vol: Float)
+    func effectsVolume(vol: Float)
+    func playSegue(fileNamed: String)
+}
+
 import UIKit
 
 class InGameSettingsController: UIViewController {
     
     var player: Player?
     
+    var delegate: changeSongProtocol?
+    
+    var songNumLimit = 1  // Number of songs in the GSC songs array - 1
+    var songNow = 1
+    
     @IBAction func exitBtn(_ sender: Any) {
         UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+        delegate?.playSegue(fileNamed: "hit.mp3")
     }
     
     @IBAction func saveBtn(_ sender: Any) {
         let savedData = NSKeyedArchiver.archivedData(withRootObject: player!)
         let defaults = UserDefaults.standard
         defaults.set(savedData, forKey: "player")
+        delegate?.playSegue(fileNamed: "hit.mp3")
+        
+    }
+
+    @IBAction func effectsVolume(_ sender: UISlider) {
+        delegate?.effectsVolume(vol: sender.value)
+    }
+    
+    @IBAction func adjustVolume(_ sender: UISlider) {
+        delegate?.adjustVolume(vol: sender.value)
+    }
+    
+    
+    @IBAction func changeSong(_ sender: Any) {
+        
+        delegate?.changeSong(song: songNow)
+        if songNow == songNumLimit {
+            songNow = 0
+        } else {
+            songNow += 1
+        }
     }
     
     override func viewDidLoad() {
